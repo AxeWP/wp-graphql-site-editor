@@ -9,7 +9,7 @@ Proof of Concept - adds support for block templates and global styles to the WPG
 
 -----
 
-![Packagist License](https://img.shields.io/packagist/l/axepress/wp-graphql-site-editor?color=green) ![Packagist Version](https://img.shields.io/packagist/v/axepress/wp-graphql-site-editor?label=stable) ![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/AxeWP/wp-graphql-site-editor/0.0.8) ![GitHub forks](https://img.shields.io/github/forks/AxeWP/wp-graphql-site-editor?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/AxeWP/wp-graphql-site-editor?style=social)<br />
+![Packagist License](https://img.shields.io/packagist/l/axepress/wp-graphql-site-editor?color=green) ![Packagist Version](https://img.shields.io/packagist/v/axepress/wp-graphql-site-editor?label=stable) ![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/AxeWP/wp-graphql-site-editor/0.0.1) ![GitHub forks](https://img.shields.io/github/forks/AxeWP/wp-graphql-site-editor?style=social) ![GitHub Repo stars](https://img.shields.io/github/stars/AxeWP/wp-graphql-site-editor?style=social)<br />
 ![CodeQuality](https://img.shields.io/github/actions/workflow/status/axewp/wp-graphql-site-editor/code-quality.yml?branch=develop&label=Code%20Quality)
 ![Integration Tests](https://img.shields.io/github/actions/workflow/status/axewp/wp-graphql-site-editor/integration-testing.yml?branch=develop&label=Integration%20Testing)
 ![Coding Standards](https://img.shields.io/github/actions/workflow/status/axewp/wp-graphql-site-editor/code-standard.yml?branch=develop&label=WordPress%20Coding%20Standards)

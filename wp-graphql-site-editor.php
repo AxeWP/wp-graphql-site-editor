@@ -53,7 +53,7 @@ if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 function graphql_fse_constants() : void {
 	// Plugin version.
 	if ( ! defined( 'WPGRAPHQL_FSE_VERSION' ) ) {
-		define( 'WPGRAPHQL_FSE_VERSION', '0.0.8' );
+		define( 'WPGRAPHQL_FSE_VERSION', '0.0.1' );
 	}
 
 	// Plugin Folder Path.
