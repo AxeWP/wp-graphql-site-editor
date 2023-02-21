@@ -1,0 +1,29 @@
+parameters:
+		level: 8
+		inferPrivatePropertyTypeFromConstructor: true
+		checkMissingIterableValueType: false
+		featureToggles:
+			disableRuntimeReflectionProvider: true
+		stubFiles:
+			# Simulate added properties
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-post-type.stub
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/class-wp-taxonomy.stub
+			- vendor/axepress/wp-graphql-plugin-boilerplate/phpstan/Model.stub
+		bootstrapFiles:
+			- phpstan/constants.php
+			- wp-graphql-site-editor.php
+			- access-functions.php
+			- activation.php
+			- deactivation.php
+		paths:
+			- wp-graphql-site-editor.php
+			- access-functions.php
+			- activation.php
+			- deactivation.php
+			- src/
+		scanDirectories:
+			- src/
+			- ../wp-graphql-content-blocks
+			- vendor/axepress/wp-graphql-plugin-boilerplate/src/
+		scanFiles:
+			- vendor/axepress/wp-graphql-stubs/wp-graphql-stubs.php

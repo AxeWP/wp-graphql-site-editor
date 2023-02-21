@@ -1,0 +1,66 @@
+<?php
+/**
+ * Registers the connections to TemplatePart
+ *
+ * @package WPGraphQL\SiteEditor\Connection
+ */
+
+namespace WPGraphQL\SiteEditor\Connection;
+
+use AxeWP\GraphQL\Abstracts\ConnectionType;
+use GraphQL\Type\Definition\ResolveInfo;
+use WPGraphQL\AppContext;
+use WPGraphQL\SiteEditor\Data\Connection\TemplatePartConnectionResolver;
+use WPGraphQL\SiteEditor\Type\WPObject\TemplatePart;
+
+/**
+ * Class - TemplatePartConnection
+ */
+class TemplatePartConnection extends ConnectionType {
+
+	/**
+	 * {@inheritDoc}
+	 */
+	protected static function type_name() : string {
+		return TemplatePart::get_type_name();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public static function register() : void {
+		/** @var array $config */
+		$config = self::get_connection_config(
+			[
+				'fromType'       => 'RootQuery',
+				'fromFieldName'  => 'templateParts',
+				'connectionArgs' => self::get_connection_args(),
+				'description'    => __( 'Block Template parts', 'wp-graphql-site-editor' ),
+				'resolve'        => static function ( $source, array $args, AppContext $context, ResolveInfo $info ) {
+					$resolver = new TemplatePartConnectionResolver( $source, $args, $context, $info );
+
+					return $resolver->get_connection();
+				},
+			]
+		);
+
+		register_graphql_connection( $config );
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public static function connection_args() : array {
+		return [
+			'slugIn'      => [
+				'type'        => [ 'list_of' => 'String' ],
+				'description' => __( 'A list of template part slugs to include', 'wp-graphql-site-editor' ),
+			],
+			'contentType' => [ // phpcs:ignore WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude
+				'type'        => [ 'list_of' => 'PostTypeEnum' ],
+				'description' => __( 'A list of post types associated with the template part', 'wp-graphql-site-editor' ),
+			],
+		];
+	}
+
+}

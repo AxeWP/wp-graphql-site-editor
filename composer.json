@@ -1,0 +1,109 @@
+{
+	"name": "axepress/wp-graphql-site-editor",
+	"description": "Adds WPGraphQL support for the WordPress Site Editor",
+	"type": "wordpress-plugin",
+	"license": "GPL-3.0-or-later",
+	"authors": [
+		{
+			"name": "AxePress Development",
+			"email": "support@axepress.dev",
+			"homepage": "https://axepress.dev"
+		},
+		{
+			"name": "David Levine",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "support@axepress.dev",
+		"issues": "https://github.com/AxeWP/wp-graphql-site-editor/issues",
+		"forum": "https://github.com/AxeWP/wp-graphql-site-editor/discussions"
+	},
+	"readme": "README.md",
+	"funding": [
+		{
+			"type":"github",
+			"url": "https://github.com/sponsors/AxeWP"
+		}
+	],
+	"require": {
+		"php": ">=7.4 || ^8.0 || ^8.1",
+		"axepress/wp-graphql-plugin-boilerplate": "^0.0.6"
+	},
+	"require-dev": {
+		"lucatume/wp-browser": "^3.0",
+		"codeception/lib-innerbrowser": "^1.0",
+		"codeception/module-asserts": "^1.0",
+		"codeception/module-cli": "^1.0",
+		"codeception/module-db": "^1.0",
+		"codeception/module-filesystem": "^1.0",
+		"codeception/module-phpbrowser": "^1.0",
+		"codeception/module-rest": "^2.0",
+		"codeception/module-webdriver": "^1.0",
+		"codeception/phpunit-wrapper": "^9.0",
+		"codeception/util-universalframework": "^1.0",
+		"phpunit/phpunit": "^9.5",
+		"wp-graphql/wp-graphql-testcase": "~2.3",
+		"automattic/vipwpcs": "^2.3",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"phpstan/phpstan": "^1.2",
+		"phpstan/extension-installer": "^1.1",
+		"szepeviktor/phpstan-wordpress": "^1.0",
+		"axepress/wp-graphql-stubs": "^1.12",
+		"wp-cli/wp-cli-bundle": "^2.6",
+		"php-coveralls/php-coveralls": "^2.5"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		},
+		"optimize-autoloader": true,
+		"platform": {
+			"php": "7.4"
+		},
+		"process-timeout": 0
+	},
+	"autoload": {
+		"files": [
+			"access-functions.php"
+		],
+		"psr-4": {
+			"WPGraphQL\\SiteEditor\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\WPGraphQL\\SiteEditor\\": "tests/_support/"
+		}
+	},
+	"scripts": {
+		"init-plugin": "bash vendor/bin/init-wpgraphql-plugin.sh",
+		"install-test-env": "bash bin/install-test-env.sh",
+		"install-stan-env": "bash bin/install-stan-env.sh",
+		"docker-build": "bash bin/run-docker.sh build",
+		"docker-run": "bash bin/run-docker.sh run",
+		"docker-destroy": "docker-compose down",
+		"build-and-run": [
+			"@docker-build",
+			"@docker-run"
+		],
+		"build-app": "@docker-build -a",
+		"build-test": "@docker-build -t",
+		"run-app": "@docker-run -a",
+		"run-test": "@docker-run -t",
+		"lint": "vendor/bin/phpcs",
+		"phpcs-i": [
+			"php ./vendor/bin/phpcs -i"
+		],
+		"check-cs": [
+			"php ./vendor/bin/phpcs src"
+		],
+		"fix-cs": [
+			"php ./vendor/bin/phpcbf src"
+		],
+		"phpstan": [
+			"vendor/bin/phpstan analyze --ansi --memory-limit=1G"
+		]
+	}
+}
