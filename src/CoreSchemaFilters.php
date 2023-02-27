@@ -7,13 +7,13 @@
 
 namespace WPGraphQL\SiteEditor;
 
-use AxeWP\GraphQL\Interfaces\Registrable;
 use WPGraphQL\AppContext;
 use WPGraphQL\SiteEditor\Data\Loader\TemplatePartAreaLoader;
 use WPGraphQL\SiteEditor\Data\Loader\TemplatePartLoader;
 use WPGraphQL\SiteEditor\Data\Loader\TemplateLoader;
 use WPGraphQL\SiteEditor\Model\Template;
 use WPGraphQL\SiteEditor\Model\TemplatePart;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
 
 /**
  * Class - CoreSchemaFilters

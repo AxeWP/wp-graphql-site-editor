@@ -7,8 +7,8 @@
 
 namespace WPGraphQL\SiteEditor\Type\Enum;
 
-use AxeWP\GraphQL\Abstracts\EnumType;
 use WPGraphQL\Type\WPEnumType;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\EnumType;
 
 /**
  * Class - TemplatePartAreaEnum

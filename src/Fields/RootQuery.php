@@ -7,7 +7,6 @@
 
 namespace WPGraphQL\SiteEditor\Fields;
 
-use AxeWP\GraphQL\Abstracts\FieldsType;
 use GraphQL\Error\UserError;
 use GraphQLRelay\Relay;
 use WPGraphQL\AppContext;
@@ -19,6 +18,7 @@ use WPGraphQL\SiteEditor\Type\Enum\TemplatePartIdTypeEnum;
 use WPGraphQL\SiteEditor\Type\WPObject\Template;
 use WPGraphQL\SiteEditor\Type\WPObject\TemplatePart;
 use WPGraphQL\SiteEditor\Type\WPObject\TemplatePartArea;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\FieldsType;
 
 /**
  * Class - RootQuery

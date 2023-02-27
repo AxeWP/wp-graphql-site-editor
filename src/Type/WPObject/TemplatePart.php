@@ -7,9 +7,9 @@
 
 namespace WPGraphQL\SiteEditor\Type\WPObject;
 
-use AxeWP\GraphQL\Abstracts\ObjectType;
-use AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
 use WPGraphQL\SiteEditor\Type\Enum\TemplatePartAreaEnum;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\ObjectType;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
 
 /**
  * Class - TemplatePart

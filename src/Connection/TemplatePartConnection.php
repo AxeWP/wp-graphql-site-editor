@@ -7,11 +7,11 @@
 
 namespace WPGraphQL\SiteEditor\Connection;
 
-use AxeWP\GraphQL\Abstracts\ConnectionType;
 use GraphQL\Type\Definition\ResolveInfo;
 use WPGraphQL\AppContext;
 use WPGraphQL\SiteEditor\Data\Connection\TemplatePartConnectionResolver;
 use WPGraphQL\SiteEditor\Type\WPObject\TemplatePart;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\ConnectionType;
 
 /**
  * Class - TemplatePartConnection

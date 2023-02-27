@@ -7,18 +7,18 @@
 
 namespace WPGraphQL\SiteEditor;
 
-use AxeWP\GraphQL\Abstracts\Type;
 use Exception;
 use WPGraphQL\SiteEditor\Connection;
 use WPGraphQL\SiteEditor\Fields;
-use AxeWP\GraphQL\Interfaces\GraphQLType;
-use AxeWP\GraphQL\Interfaces\Registrable;
 use WPGraphQL\SiteEditor\Mutation;
 use WPGraphQL\SiteEditor\Type\Enum;
 use WPGraphQL\SiteEditor\Type\Input;
 use WPGraphQL\SiteEditor\Type\WPInterface;
 use WPGraphQL\SiteEditor\Type\WPObject;
 use WPGraphQL\SiteEditor\Utils\Utils;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\Type;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\Registrable;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\GraphQLType;
 
 /**
  * Class - TypeRegistry
