@@ -46,92 +46,99 @@ if ( file_exists( __DIR__ . '/deactivation.php' ) ) {
 	register_activation_hook( __FILE__, 'graphql_fse_deactivation_callback' );
 }
 
+if ( ! function_exists( 'graphql_fse_constants' ) ) {
 
-/**
- * Define plugin constants.
- */
-function graphql_fse_constants() : void {
-	// Plugin version.
-	if ( ! defined( 'WPGRAPHQL_FSE_VERSION' ) ) {
-		define( 'WPGRAPHQL_FSE_VERSION', '0.0.1' );
-	}
+	/**
+	 * Define plugin constants.
+	 */
+	function graphql_fse_constants() : void {
+		// Plugin version.
+		if ( ! defined( 'WPGRAPHQL_FSE_VERSION' ) ) {
+			define( 'WPGRAPHQL_FSE_VERSION', '0.0.1' );
+		}
 
-	// Plugin Folder Path.
-	if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_DIR' ) ) {
-		define( 'WPGRAPHQL_FSE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-	}
+		// Plugin Folder Path.
+		if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_DIR' ) ) {
+			define( 'WPGRAPHQL_FSE_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+		}
 
-	// Plugin Folder URL.
-	if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_URL' ) ) {
-		define( 'WPGRAPHQL_FSE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-	}
+		// Plugin Folder URL.
+		if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_URL' ) ) {
+			define( 'WPGRAPHQL_FSE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+		}
 
-	// Plugin Root File.
-	if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_FILE' ) ) {
-		define( 'WPGRAPHQL_FSE_PLUGIN_FILE', __FILE__ );
-	}
+		// Plugin Root File.
+		if ( ! defined( 'WPGRAPHQL_FSE_PLUGIN_FILE' ) ) {
+			define( 'WPGRAPHQL_FSE_PLUGIN_FILE', __FILE__ );
+		}
 
-	// Whether to autoload the files or not.
-	if ( ! defined( 'WPGRAPHQL_FSE_AUTOLOAD' ) ) {
-		define( 'WPGRAPHQL_FSE_AUTOLOAD', true );
-	}
+		// Whether to autoload the files or not.
+		if ( ! defined( 'WPGRAPHQL_FSE_AUTOLOAD' ) ) {
+			define( 'WPGRAPHQL_FSE_AUTOLOAD', true );
+		}
 
-	// The Plugin Boilerplate hook prefix.
-	if ( ! defined( 'AXEWP_PB_HOOK_PREFIX' ) ) {
-		define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_fse' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
-	}
-}
-
-/**
- * Checks if all the the required plugins are installed and activated.
- */
-function graphql_fse_dependencies_not_ready() : array {
-	$deps = [];
-
-	if ( ! class_exists( '\WPGraphQL' ) ) {
-		$deps[] = 'WPGraphQL';
-	}
-	if ( ! class_exists( '\WPGraphQLContentBlocks' ) ) {
-		$deps[] = 'WPGraphQL Content Blocks';
-	}
-
-	return $deps;
-}
-
-/**
- * Initializes plugin.
- */
-function graphql_fse_init() : void {
-	graphql_fse_constants();
-
-	$not_ready = graphql_fse_dependencies_not_ready();
-
-	if ( empty( $not_ready ) && defined( 'WPGRAPHQL_FSE_PLUGIN_DIR' ) ) {
-		require_once WPGRAPHQL_FSE_PLUGIN_DIR . 'src/Main.php';
-		\WPGraphQL\SiteEditor\Main::instance();
-		return;
-	}
-
-	foreach ( $not_ready as $dep ) {
-		add_action(
-			'admin_notices',
-			function() use ( $dep ) {
-				?>
-				<div class="error notice">
-					<p>
-						<?php
-							printf(
-								/* translators: dependency not ready error message */
-								esc_html__( '%1$s must be active for WPGraphQL for Full Site Editor to work.', 'wp-graphql-site-editor' ),
-								esc_html( $dep )
-							);
-						?>
-					</p>
-				</div>
-				<?php
-			}
-		);
+		// The Plugin Boilerplate hook prefix.
+		if ( ! defined( 'AXEWP_PB_HOOK_PREFIX' ) ) {
+			define( 'AXEWP_PB_HOOK_PREFIX', 'graphql_fse' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+		}
 	}
 }
 
+if ( ! function_exists( 'graphql_fse_dependencies_not_ready' ) ) {
+	/**
+	 * Checks if all the the required plugins are installed and activated.
+	 */
+	function graphql_fse_dependencies_not_ready() : array {
+		$deps = [];
+
+		if ( ! class_exists( '\WPGraphQL' ) ) {
+			$deps[] = 'WPGraphQL';
+		}
+		if ( ! class_exists( '\WPGraphQLContentBlocks' ) ) {
+			$deps[] = 'WPGraphQL Content Blocks';
+		}
+
+		return $deps;
+	}
+}
+
+if ( ! function_exists( 'graphql_fse_init' ) ) {
+	/**
+	 * Initializes plugin.
+	 */
+	function graphql_fse_init() : void {
+		graphql_fse_constants();
+
+		$not_ready = graphql_fse_dependencies_not_ready();
+
+		if ( empty( $not_ready ) && defined( 'WPGRAPHQL_FSE_PLUGIN_DIR' ) ) {
+			require_once WPGRAPHQL_FSE_PLUGIN_DIR . 'src/Main.php';
+			\WPGraphQL\SiteEditor\Main::instance();
+			return;
+		}
+
+		foreach ( $not_ready as $dep ) {
+			add_action(
+				'admin_notices',
+				function() use ( $dep ) {
+					?>
+					<div class="error notice">
+						<p>
+							<?php
+								printf(
+									/* translators: dependency not ready error message */
+									esc_html__( '%1$s must be active for WPGraphQL for Full Site Editor to work.', 'wp-graphql-site-editor' ),
+									esc_html( $dep )
+								);
+							?>
+						</p>
+					</div>
+					<?php
+				}
+			);
+		}
+	}
+}
+
+// Hook plugin.
 add_action( 'graphql_init', 'graphql_fse_init' );
