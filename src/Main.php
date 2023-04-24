@@ -66,7 +66,7 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		 */
 		private function setup() : void {
 			// // Setup boilerplate hook prefix.
-			Helper::set_hook_prefix( 'graphql_seo' );
+			Helper::set_hook_prefix( 'graphql_fse' );
 
 			// Setup plugin.
 			CoreSchemaFilters::init();
