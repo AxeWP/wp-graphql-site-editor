@@ -6,9 +6,9 @@ wp plugin install wp-graphql --allow-root --activate
 # Install WPGraphQL Content Blocks and Activate
 	if ! $( wp plugin is-installed wp-graphql-content-blocks ); then
 		wp plugin install https://github.com/wpengine/wp-graphql-content-blocks/archive/refs/heads/main.zip --allow-root
-		cd $WP_CORE_DIR/wp-content/plugins/wp-graphql-content-blocks
+		cd ${PLUGINS_DIR}/wp-graphql-content-blocks
 		composer install --no-dev --no-interaction --no-progress --optimize-autoloader
-		cd $WP_CORE_DIR
+		cd ${WP_ROOT_FOLDER}
 	fi
 	wp plugin activate wp-graphql-content-blocks --allow-root
 
