@@ -3,7 +3,7 @@
         'name' => 'axepress/wp-graphql-site-editor',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'de697d5b30eba8dafe5d68a8840632f445d3d8a9',
+        'reference' => '9c8b2928bcb369ef7d206728e7087f5dc45384c1',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'axepress/wp-graphql-site-editor' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'de697d5b30eba8dafe5d68a8840632f445d3d8a9',
+            'reference' => '9c8b2928bcb369ef7d206728e7087f5dc45384c1',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
