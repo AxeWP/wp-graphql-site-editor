@@ -7,7 +7,7 @@
 
 namespace WPGraphQL\SiteEditor;
 
-use WPGraphQL\SiteEditor\Admin\Settings\Settings;
+use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Helper\Helper;
 
 if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 
@@ -65,6 +65,8 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		 * @codeCoverageIgnore
 		 */
 		private function setup() : void {
+			// // Setup boilerplate hook prefix.
+			Helper::set_hook_prefix( 'graphql_seo' );
 
 			// Setup plugin.
 			CoreSchemaFilters::init();
