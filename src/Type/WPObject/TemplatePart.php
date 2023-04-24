@@ -105,7 +105,7 @@ class TemplatePart extends ObjectType implements TypeWithInterfaces {
 		return [
 			'Node',
 			'NodeWithContentEditor',
-			'NodeWithContentBlocks',
+			'NodeWithEditorBlocks',
 		];
 	}
 }
