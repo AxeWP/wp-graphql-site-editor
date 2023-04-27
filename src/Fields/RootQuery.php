@@ -46,11 +46,6 @@ class RootQuery extends FieldsType {
 	 */
 	public static function get_fields() : array {
 		return [
-			'globalStylesheet' => [
-				'type'        => 'String',
-				'description' => __( 'The global stylesheet', 'wp-graphql-site-editor' ),
-				'resolve'     => fn() => wp_get_global_stylesheet(),
-			],
 			'templatePartArea' => [
 				'type'        => TemplatePartArea::get_type_name(),
 				'description' => __( 'The template part area', 'wp-graphql-site-editor' ),
