@@ -20,7 +20,7 @@ class Utils {
 	 *
 	 * @param string $part The template-part to print. Use "header" or "footer".
 	 */
-	public static function get_block_template_part( string $part ) : ?WP_Block_Template {
+	public static function get_block_template_part( string $part ): ?WP_Block_Template {
 		return get_block_template( get_stylesheet() . '//' . $part, 'wp_template_part' );
 	}
 
@@ -31,7 +31,7 @@ class Utils {
 	 *
 	 * @param string $slug The template to print. Use "index" or "single".
 	 */
-	public static function get_block_template( string $slug ) : ? WP_Block_template {
+	public static function get_block_template( string $slug ): ?WP_Block_template {
 		return get_block_template( get_stylesheet() . '//' . $slug, 'wp_template' );
 	}
 }

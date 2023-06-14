@@ -15,25 +15,24 @@ use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
  * Class - TemplatePart
  */
 class TemplatePart extends ObjectType implements TypeWithInterfaces {
-
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return 'TemplatePart';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_description() : string {
+	public static function get_description(): string {
 		return __( 'The block template part.', 'wp-graphql-site-editor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_fields() : array {
+	public static function get_fields(): array {
 		return [
 			'area'             => [
 				'type'        => TemplatePartAreaEnum::get_type_name(),
@@ -101,7 +100,7 @@ class TemplatePart extends ObjectType implements TypeWithInterfaces {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_interfaces() : array {
+	public static function get_interfaces(): array {
 		return [
 			'Node',
 			'NodeWithContentEditor',

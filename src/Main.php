@@ -25,10 +25,10 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		/**
 		 * Constructor
 		 */
-		public static function instance() : self {
-			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, __CLASS__ ) ) ) {
+		public static function instance(): self {
+			if ( ! isset( self::$instance ) || ! ( is_a( self::$instance, self::class ) ) ) {
 				// You cant test a singleton.
-				// @codeCoverageIgnoreStart
+				// @codeCoverageIgnoreStart .
 				if ( ! function_exists( 'is_plugin_active' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin.php';
 				}
@@ -53,7 +53,7 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function includes() : void {
+		private function includes(): void {
 			if ( defined( 'WPGRAPHQL_FSE_AUTOLOAD' ) && false !== WPGRAPHQL_FSE_AUTOLOAD && defined( 'WPGRAPHQL_FSE_PLUGIN_DIR' ) ) {
 				require_once WPGRAPHQL_FSE_PLUGIN_DIR . 'vendor/autoload.php';
 			}
@@ -64,7 +64,7 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		private function setup() : void {
+		private function setup(): void {
 			// // Setup boilerplate hook prefix.
 			Helper::set_hook_prefix( 'graphql_fse' );
 
@@ -92,7 +92,7 @@ if ( ! class_exists( 'WPGraphQL\SiteEditor\Main' ) ) :
 		 *
 		 * @codeCoverageIgnore
 		 */
-		public function __wakeup() : void {
+		public function __wakeup(): void {
 			// De-serializing instances of the class is forbidden.
 			_doing_it_wrong( __FUNCTION__, esc_html__( 'De-serializing instances of the plugin Main class is not allowed.', 'wp-graphql-site-editor' ), '0.0.1' );
 		}

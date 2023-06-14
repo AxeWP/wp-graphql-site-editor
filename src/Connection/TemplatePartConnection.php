@@ -17,18 +17,17 @@ use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\ConnectionType;
  * Class - TemplatePartConnection
  */
 class TemplatePartConnection extends ConnectionType {
-
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return TemplatePart::get_type_name();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function register() : void {
+	public static function register(): void {
 		/** @var array $config */
 		$config = self::get_connection_config(
 			[
@@ -50,7 +49,7 @@ class TemplatePartConnection extends ConnectionType {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function connection_args() : array {
+	public static function connection_args(): array {
 		return [
 			'slugIn'      => [
 				'type'        => [ 'list_of' => 'String' ],
@@ -62,5 +61,4 @@ class TemplatePartConnection extends ConnectionType {
 			],
 		];
 	}
-
 }

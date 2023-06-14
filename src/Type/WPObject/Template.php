@@ -14,25 +14,24 @@ use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
  * Class - Template
  */
 class Template extends ObjectType implements TypeWithInterfaces {
-
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return 'Template';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_description() : string {
+	public static function get_description(): string {
 		return __( 'The block template.', 'wp-graphql-site-editor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_fields() : array {
+	public static function get_fields(): array {
 		return [
 			'authorId'         => [
 				'type'        => 'ID',
@@ -96,7 +95,7 @@ class Template extends ObjectType implements TypeWithInterfaces {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_interfaces() : array {
+	public static function get_interfaces(): array {
 		return [
 			'Node',
 			'NodeWithContentEditor',

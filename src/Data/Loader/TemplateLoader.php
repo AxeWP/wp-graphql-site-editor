@@ -7,9 +7,7 @@
 
 namespace WPGraphQL\SiteEditor\Data\Loader;
 
-use Exception;
 use WPGraphQL\Data\Loader\AbstractDataLoader;
-use WPGraphQL\Model\Model;
 use WPGraphQL\SiteEditor\Model\Template;
 use WPGraphQL\SiteEditor\Utils\Utils;
 
@@ -19,14 +17,13 @@ use WPGraphQL\SiteEditor\Utils\Utils;
  * @package WPGraphQL\Data\Loader
  */
 class TemplateLoader extends AbstractDataLoader {
-
-	const LOADER_NAME = 'template';
+	public const LOADER_NAME = 'template';
 
 	/**
 	 * @param mixed $entry The Template part area.
 	 * @param mixed $key Unused.
 	 *
-	 * @return Model|Template
+	 * @return \WPGraphQL\Model\Model|\WPGraphQL\SiteEditor\Model\Template
 	 * @throws \Exception .
 	 */
 	protected function get_model( $entry, $key ) {

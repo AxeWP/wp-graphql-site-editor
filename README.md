@@ -21,8 +21,8 @@ Proof of Concept - adds support for block templates and global styles to the WPG
 * PHP 7.4+ || 8.0+ || 8.1+
 * WordPress 5.7.0+
 * WPGraphQL 1.13.0+ (probably earlier too)
-* WPGraphQL Content Blocks 0.2.0
-* FaustWP Plugin 0.8.6+
+* WPGraphQL Content Blocks 1.0.0+
+* FaustWP Plugin 1.0.0+
 
 ## Quick Install
 

@@ -7,8 +7,6 @@
 
 namespace WPGraphQL\SiteEditor\Data\Connection;
 
-use GraphQL\Type\Definition\ResolveInfo;
-use WPGraphQL\AppContext;
 use WPGraphQL\Data\Connection\AbstractConnectionResolver;
 use WPGraphQL\SiteEditor\Data\Loader\TemplatePartLoader;
 
@@ -51,13 +49,10 @@ class TemplatePartConnectionResolver extends AbstractConnectionResolver {
 	 * {@inheritDoc}
 	 */
 	public function get_ids_from_query() {
-
-		// Given a list of role slugs
 		if ( isset( $this->args['where']['include'] ) ) {
 			return $this->args['where']['include'];
 		}
 
-		// Given a list of role slugs
 		if ( isset( $this->args['where']['exclude'] ) ) {
 			return $this->args['where']['exclude'];
 		}
@@ -127,5 +122,4 @@ class TemplatePartConnectionResolver extends AbstractConnectionResolver {
 	public function should_execute() {
 		return true;
 	}
-
 }

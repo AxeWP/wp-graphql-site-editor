@@ -11,8 +11,8 @@ if ( ! function_exists( 'graphql_fse_deactivation_callback' ) ) {
 	 *
 	 * This cleans up data that WPGraphQL stores.
 	 */
-	function graphql_fse_deactivation_callback() : callable {
-		return function() : void {
+	function graphql_fse_deactivation_callback(): callable {
+		return static function (): void {
 
 			// Fire an action when WPGraphQL is de-activating.
 			do_action( 'graphql_fse_deactivate' );
@@ -27,7 +27,7 @@ if ( ! function_exists( 'graphql_fse_delete_data' ) ) {
 	/**
 	 * Delete data on deactivation.
 	 */
-	function graphql_fse_delete_data() : void {
+	function graphql_fse_delete_data(): void {
 		// Delete plugin version.
 		delete_option( 'wp_graphql_fse_version' );
 

@@ -7,8 +7,8 @@
 
 namespace WPGraphQL\SiteEditor\Type\Enum;
 
-use WPGraphQL\Type\WPEnumType;
 use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\EnumType;
+use WPGraphQL\Type\WPEnumType;
 
 /**
  * Class - TemplatePartAreaEnum
@@ -17,7 +17,7 @@ class TemplatePartAreaEnum extends EnumType {
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return 'TemplatePartAreaEnum';
 	}
 

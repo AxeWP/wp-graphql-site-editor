@@ -7,9 +7,7 @@
 
 namespace WPGraphQL\SiteEditor\Data\Loader;
 
-use Exception;
 use WPGraphQL\Data\Loader\AbstractDataLoader;
-use WPGraphQL\Model\Model;
 use WPGraphQL\SiteEditor\Model\TemplatePartArea;
 
 /**
@@ -18,14 +16,13 @@ use WPGraphQL\SiteEditor\Model\TemplatePartArea;
  * @package WPGraphQL\Data\Loader
  */
 class TemplatePartAreaLoader extends AbstractDataLoader {
-
-	const LOADER_NAME = 'template-part-area';
+	public const LOADER_NAME = 'template-part-area';
 
 	/**
 	 * @param mixed $entry The Template aart area.
 	 * @param mixed $key Unused.
 	 *
-	 * @return Model|TemplatePartArea
+	 * @return \WPGraphQL\Model\Model|\WPGraphQL\SiteEditor\Model\TemplatePartArea
 	 * @throws \Exception .
 	 */
 	protected function get_model( $entry, $key ) {

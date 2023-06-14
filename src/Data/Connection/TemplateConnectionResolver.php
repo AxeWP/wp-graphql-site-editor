@@ -125,5 +125,4 @@ class TemplateConnectionResolver extends AbstractConnectionResolver {
 	public function should_execute() {
 		return true;
 	}
-
 }

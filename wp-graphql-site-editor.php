@@ -51,7 +51,7 @@ if ( ! function_exists( 'graphql_fse_constants' ) ) {
 	/**
 	 * Define plugin constants.
 	 */
-	function graphql_fse_constants() : void {
+	function graphql_fse_constants(): void {
 		// Plugin version.
 		if ( ! defined( 'WPGRAPHQL_FSE_VERSION' ) ) {
 			define( 'WPGRAPHQL_FSE_VERSION', '0.0.1' );
@@ -88,7 +88,7 @@ if ( ! function_exists( 'graphql_fse_dependencies_not_ready' ) ) {
 	/**
 	 * Checks if all the the required plugins are installed and activated.
 	 */
-	function graphql_fse_dependencies_not_ready() : array {
+	function graphql_fse_dependencies_not_ready(): array {
 		$deps = [];
 
 		if ( ! class_exists( '\WPGraphQL' ) ) {
@@ -106,7 +106,7 @@ if ( ! function_exists( 'graphql_fse_init' ) ) {
 	/**
 	 * Initializes plugin.
 	 */
-	function graphql_fse_init() : void {
+	function graphql_fse_init(): void {
 		graphql_fse_constants();
 
 		$not_ready = graphql_fse_dependencies_not_ready();
@@ -120,7 +120,7 @@ if ( ! function_exists( 'graphql_fse_init' ) ) {
 		foreach ( $not_ready as $dep ) {
 			add_action(
 				'admin_notices',
-				function() use ( $dep ) {
+				static function () use ( $dep ) {
 					?>
 					<div class="error notice">
 						<p>

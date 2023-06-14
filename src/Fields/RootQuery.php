@@ -24,11 +24,10 @@ use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\FieldsType;
  * Class - RootQuery
  */
 class RootQuery extends FieldsType {
-
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return 'RootQuery';
 	}
 
@@ -37,14 +36,14 @@ class RootQuery extends FieldsType {
 	 *
 	 * @return string
 	 */
-	public static function get_type_name() : string {
+	public static function get_type_name(): string {
 		return static::type_name();
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_fields() : array {
+	public static function get_fields(): array {
 		return [
 			'templatePartArea' => [
 				'type'        => TemplatePartArea::get_type_name(),
@@ -55,7 +54,7 @@ class RootQuery extends FieldsType {
 						'description' => __( 'The template part area', 'wp-graphql-site-editor' ),
 					],
 				],
-				'resolve'     => function( $source, array $args, AppContext $context ) {
+				'resolve'     => static function ( $source, array $args, AppContext $context ) {
 					return $context->get_loader( TemplatePartAreaLoader::LOADER_NAME )->load_deferred( $args['area'] );
 				},
 			],
@@ -72,7 +71,7 @@ class RootQuery extends FieldsType {
 						'description' => __( 'The template part ID type', 'wp-graphql-site-editor' ),
 					],
 				],
-				'resolve'     => function( $source, array $args, AppContext $context ) {
+				'resolve'     => static function ( $source, array $args, AppContext $context ) {
 					if ( empty( $args['idType'] ) ) {
 						throw new UserError( __( 'The template part ID type is required', 'wp-graphql-site-editor' ) );
 					}
@@ -120,7 +119,7 @@ class RootQuery extends FieldsType {
 						'description' => __( 'The template ID type', 'wp-graphql-site-editor' ),
 					],
 				],
-				'resolve'     => function( $source, array $args, AppContext $context ) {
+				'resolve'     => static function ( $source, array $args, AppContext $context ) {
 					if ( empty( $args['idType'] ) ) {
 						throw new UserError( __( 'The template part ID type is required', 'wp-graphql-site-editor' ) );
 					}

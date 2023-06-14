@@ -9,8 +9,8 @@ namespace WPGraphQL\SiteEditor\Type\WPObject;
 
 use WPGraphQL\AppContext;
 use WPGraphQL\SiteEditor\Model\TemplatePart as TemplatePartModel;
-use WPGraphQL\SiteEditor\Type\WPObject\TemplatePart;
 use WPGraphQL\SiteEditor\Type\Enum\TemplatePartAreaEnum;
+use WPGraphQL\SiteEditor\Type\WPObject\TemplatePart;
 use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Abstracts\ObjectType;
 use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
 
@@ -18,25 +18,24 @@ use WPGraphQL\SiteEditor\Vendor\AxeWP\GraphQL\Interfaces\TypeWithInterfaces;
  * Class - TemplatePartArea
  */
 class TemplatePartArea extends ObjectType implements TypeWithInterfaces {
-
 	/**
 	 * {@inheritDoc}
 	 */
-	protected static function type_name() : string {
+	protected static function type_name(): string {
 		return 'TemplatePartArea';
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_description() : string {
+	public static function get_description(): string {
 		return __( 'The block template part area.', 'wp-graphql-site-editor' );
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_fields() : array {
+	public static function get_fields(): array {
 		return [
 			'area'               => [
 				'type'        => TemplatePartAreaEnum::get_type_name(),
@@ -65,7 +64,7 @@ class TemplatePartArea extends ObjectType implements TypeWithInterfaces {
 			'activeTemplatePart' => [
 				'type'        => TemplatePart::get_type_name(),
 				'description' => __( 'The active template part assigned to the area', 'wp-graphql-site-editor' ),
-				'resolve'     => fn( $source, array $args, AppContext $context ) => ! empty( $source->activeTemplatePart ) ? new TemplatePartModel( $source->activeTemplatePart ) : null,
+				'resolve'     => static fn ( $source, array $args, AppContext $context ) => ! empty( $source->activeTemplatePart ) ? new TemplatePartModel( $source->activeTemplatePart ) : null,
 			],
 		];
 	}
@@ -73,7 +72,7 @@ class TemplatePartArea extends ObjectType implements TypeWithInterfaces {
 	/**
 	 * {@inheritDoc}
 	 */
-	public static function get_interfaces() : array {
+	public static function get_interfaces(): array {
 		return [ 'Node' ];
 	}
 }
